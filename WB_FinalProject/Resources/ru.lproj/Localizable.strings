@@ -1,0 +1,18 @@
+// MARK: RUSSIAN STRINGS
+
+// ONBOARDING
+"onboarding1_title" = "Ищите интересные вам книги";
+"onboarding2_title" = "Используйте закладки";
+
+"onboarding1_subtitle" = "Легко и просто ищите интересующую вас литературу в нашей базе данных! Книги на любой вкус!";
+"onboarding2_subtitle" = "Сохраняйте интересные вам книги на будущее!";
+
+// TAB BAR
+
+// BUTTONS
+"button_continue" = "Продолжить";
+"button_search_book" = "Найти книгу";
+
+// NAV BAR
+
+// TEXT
