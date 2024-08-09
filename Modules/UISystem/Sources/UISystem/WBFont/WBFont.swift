@@ -6,9 +6,9 @@ import SwiftUI
     .font(.wb(.body1))
  */
 
-typealias WBFont = SFDisplayPro
+public typealias WBFont = SFDisplayPro
 
-enum SFDisplayPro {
+public enum SFDisplayPro {
     case heading1
     case heading2
     case subheading1
@@ -20,7 +20,7 @@ enum SFDisplayPro {
     case metadata3
 }
 
-extension Font {
+public extension Font {
     
     static func wb(_ font: WBFont) -> Self {
         switch font {
