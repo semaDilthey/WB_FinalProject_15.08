@@ -18,6 +18,9 @@
 		3F7D6DE42C679DA900D69CD7 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DE32C679DA900D69CD7 /* OnboardingModel.swift */; };
 		3F7D6DE62C679E5500D69CD7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DE52C679E5500D69CD7 /* OnboardingViewModel.swift */; };
 		3F7D6DE82C679F0300D69CD7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DE72C679F0300D69CD7 /* OnboardingView.swift */; };
+		3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */; };
+		3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */; };
+		3F7D6DF02C68080A00D69CD7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEF2C68080A00D69CD7 /* Router.swift */; };
 		AB581A501FAEE2F054BF60A5 /* Pods_WB_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300D92BD1A8FD71E40B9CA20 /* Pods_WB_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		3F7D6DE32C679DA900D69CD7 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		3F7D6DE52C679E5500D69CD7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		3F7D6DE72C679F0300D69CD7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		3F7D6DEF2C68080A00D69CD7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7D67061955F237CE7EFD3879 /* Pods-WB_FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WB_FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-WB_FinalProject/Pods-WB_FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BF60DB7710CF2AF153850CFE /* Pods-WB_FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WB_FinalProject.release.xcconfig"; path = "Target Support Files/Pods-WB_FinalProject/Pods-WB_FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +81,7 @@
 		3F7D6D962C65488F00D69CD7 /* WB_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				3F7D6DEE2C6807FD00D69CD7 /* Service */,
 				3F7D6DDB2C67972900D69CD7 /* Presentation */,
 				3F7D6DB82C664CD000D69CD7 /* Resources */,
 				3F7D6DB52C664C5800D69CD7 /* Extensions */,
@@ -113,6 +120,7 @@
 		3F7D6DDB2C67972900D69CD7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F7D6DE92C6805D600D69CD7 /* TabsView */,
 				3F7D6DDF2C679D8800D69CD7 /* Onboarding */,
 				3F7D6DDE2C679D8100D69CD7 /* Launch */,
 			);
@@ -159,6 +167,23 @@
 				3F7D6DE32C679DA900D69CD7 /* OnboardingModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F7D6DE92C6805D600D69CD7 /* TabsView */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */,
+				3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */,
+			);
+			path = TabsView;
+			sourceTree = "<group>";
+		};
+		3F7D6DEE2C6807FD00D69CD7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D6DEF2C68080A00D69CD7 /* Router.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		D2A093F062A64A4D9B94FE74 /* Pods */ = {
@@ -298,11 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */,
 				3F7D6DE62C679E5500D69CD7 /* OnboardingViewModel.swift in Sources */,
 				3F7D6DE42C679DA900D69CD7 /* OnboardingModel.swift in Sources */,
 				3F7D6D9A2C65488F00D69CD7 /* RootView.swift in Sources */,
+				3F7D6DF02C68080A00D69CD7 /* Router.swift in Sources */,
 				3F7D6DE82C679F0300D69CD7 /* OnboardingView.swift in Sources */,
 				3F7D6DB72C664C6800D69CD7 /* String+Extension.swift in Sources */,
+				3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */,
 				3F7D6D982C65488F00D69CD7 /* WB_FinalProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

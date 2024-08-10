@@ -8,6 +8,8 @@
 "onboarding2_subtitle" = "Save interesting books for the future!";
 
 // TAB BAR
+"tab_favorites" = "Favorites";
+"tab_search" = "Search";
 
 // BUTTONS
 "button_continue" = "Continue";
