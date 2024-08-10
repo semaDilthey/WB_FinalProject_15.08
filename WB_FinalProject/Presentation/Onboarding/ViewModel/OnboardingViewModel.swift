@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: - Число страниц онбординга
-let totalPages = 2
+private let totalPages = 2
 
 // MARK: - Onboarding Status Manager
 final class OnboardingViewModel: ObservableObject {
@@ -48,7 +48,7 @@ final class OnboardingViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Listing of onboarding states
+    // MARK: - Listing of app states
 
     enum AppState {
         case onboarding

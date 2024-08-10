@@ -26,10 +26,11 @@ struct OnboardingView: View {
             VStack {
                 Spacer()
                 imageView
+                    .padding(.top, SC.imagePad)
                 textsView
-                Spacer()
+                    .padding(.bottom, SC.textsBottomPad)
                 continueButton
-                Spacer()
+                    .padding(.bottom, SC.buttonBottomPad)
             }
             .padding()
         }
@@ -62,8 +63,22 @@ struct OnboardingView: View {
     
     private var continueButton: some View {
         WBActionButton(title: "button_continue".localized,
-                       action: withAnimation { viewModel.goToNextScreen },
+                       action: { withAnimation(.snappy) { viewModel.goToNextScreen() } },
                        backgroundColor: .wbPurple)
     }
     
+}
+
+
+fileprivate typealias SC = ScreenConstants
+fileprivate enum ScreenConstants {
+    static let imagePad : CGFloat = 110
+    static let textsBottomPad : CGFloat = 50
+    static let buttonBottomPad : CGFloat = 50
+}
+
+
+#Preview {
+    OnboardingView()
+        .environmentObject(OnboardingViewModel.shared)
 }
