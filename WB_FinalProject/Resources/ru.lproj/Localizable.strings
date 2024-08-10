@@ -8,6 +8,8 @@
 "onboarding2_subtitle" = "Сохраняйте интересные вам книги на будущее!";
 
 // TAB BAR
+"tab_favorites" = "Избранное";
+"tab_search" = "Найти";
 
 // BUTTONS
 "button_continue" = "Продолжить";
