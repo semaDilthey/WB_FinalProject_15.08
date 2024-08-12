@@ -21,6 +21,13 @@
 		3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */; };
 		3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */; };
 		3F7D6DF02C68080A00D69CD7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEF2C68080A00D69CD7 /* Router.swift */; };
+		5A3FCED62C69F5FA00457B19 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED52C69F5FA00457B19 /* NetworkService.swift */; };
+		5A3FCED92C69F62C00457B19 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED82C69F62C00457B19 /* SearchResponse.swift */; };
+		5A3FCEDB2C69F63E00457B19 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEDA2C69F63E00457B19 /* Book.swift */; };
+		5A3FCEE32C69F6B700457B19 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE22C69F6B700457B19 /* BooksView.swift */; };
+		5A3FCEE52C69F6DA00457B19 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE42C69F6DA00457B19 /* BooksViewModel.swift */; };
+		5A3FCEE72C69F6F600457B19 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE62C69F6F600457B19 /* SearchView.swift */; };
+		5A3FCEE92C69F70600457B19 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE82C69F70600457B19 /* SearchViewModel.swift */; };
 		AB581A501FAEE2F054BF60A5 /* Pods_WB_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300D92BD1A8FD71E40B9CA20 /* Pods_WB_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +49,13 @@
 		3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		3F7D6DEF2C68080A00D69CD7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		5A3FCED52C69F5FA00457B19 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5A3FCED82C69F62C00457B19 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		5A3FCEDA2C69F63E00457B19 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		5A3FCEE22C69F6B700457B19 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		5A3FCEE42C69F6DA00457B19 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		5A3FCEE62C69F6F600457B19 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		5A3FCEE82C69F70600457B19 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7D67061955F237CE7EFD3879 /* Pods-WB_FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WB_FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-WB_FinalProject/Pods-WB_FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BF60DB7710CF2AF153850CFE /* Pods-WB_FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WB_FinalProject.release.xcconfig"; path = "Target Support Files/Pods-WB_FinalProject/Pods-WB_FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +95,7 @@
 		3F7D6D962C65488F00D69CD7 /* WB_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				5A3FCED72C69F61800457B19 /* Models */,
 				3F7D6DEE2C6807FD00D69CD7 /* Service */,
 				3F7D6DDB2C67972900D69CD7 /* Presentation */,
 				3F7D6DB82C664CD000D69CD7 /* Resources */,
@@ -120,6 +135,8 @@
 		3F7D6DDB2C67972900D69CD7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5A3FCEDD2C69F66C00457B19 /* BookSearchModule */,
+				5A3FCEDC2C69F65A00457B19 /* BooksModule */,
 				3F7D6DE92C6805D600D69CD7 /* TabsView */,
 				3F7D6DDF2C679D8800D69CD7 /* Onboarding */,
 				3F7D6DDE2C679D8100D69CD7 /* Launch */,
@@ -182,8 +199,68 @@
 			isa = PBXGroup;
 			children = (
 				3F7D6DEF2C68080A00D69CD7 /* Router.swift */,
+				5A3FCED52C69F5FA00457B19 /* NetworkService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		5A3FCED72C69F61800457B19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCED82C69F62C00457B19 /* SearchResponse.swift */,
+				5A3FCEDA2C69F63E00457B19 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A3FCEDC2C69F65A00457B19 /* BooksModule */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEDF2C69F68600457B19 /* ViewModel */,
+				5A3FCEDE2C69F68000457B19 /* View */,
+			);
+			path = BooksModule;
+			sourceTree = "<group>";
+		};
+		5A3FCEDD2C69F66C00457B19 /* BookSearchModule */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEE12C69F69600457B19 /* ViewModel */,
+				5A3FCEE02C69F69000457B19 /* View */,
+			);
+			path = BookSearchModule;
+			sourceTree = "<group>";
+		};
+		5A3FCEDE2C69F68000457B19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEE22C69F6B700457B19 /* BooksView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5A3FCEDF2C69F68600457B19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEE42C69F6DA00457B19 /* BooksViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5A3FCEE02C69F69000457B19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEE62C69F6F600457B19 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5A3FCEE12C69F69600457B19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5A3FCEE82C69F70600457B19 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D2A093F062A64A4D9B94FE74 /* Pods */ = {
@@ -325,11 +402,18 @@
 			files = (
 				3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */,
 				3F7D6DE62C679E5500D69CD7 /* OnboardingViewModel.swift in Sources */,
+				5A3FCEE92C69F70600457B19 /* SearchViewModel.swift in Sources */,
 				3F7D6DE42C679DA900D69CD7 /* OnboardingModel.swift in Sources */,
+				5A3FCEE52C69F6DA00457B19 /* BooksViewModel.swift in Sources */,
 				3F7D6D9A2C65488F00D69CD7 /* RootView.swift in Sources */,
 				3F7D6DF02C68080A00D69CD7 /* Router.swift in Sources */,
 				3F7D6DE82C679F0300D69CD7 /* OnboardingView.swift in Sources */,
+				5A3FCED92C69F62C00457B19 /* SearchResponse.swift in Sources */,
+				5A3FCED62C69F5FA00457B19 /* NetworkService.swift in Sources */,
+				5A3FCEDB2C69F63E00457B19 /* Book.swift in Sources */,
+				5A3FCEE72C69F6F600457B19 /* SearchView.swift in Sources */,
 				3F7D6DB72C664C6800D69CD7 /* String+Extension.swift in Sources */,
+				5A3FCEE32C69F6B700457B19 /* BooksView.swift in Sources */,
 				3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */,
 				3F7D6D982C65488F00D69CD7 /* WB_FinalProjectApp.swift in Sources */,
 			);
