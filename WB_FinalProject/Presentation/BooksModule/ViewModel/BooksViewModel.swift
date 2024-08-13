@@ -10,6 +10,7 @@ import Combine
 
 final class BooksViewModel: ObservableObject {
     @Published var books: [Book] = []
+    @Published var bookEntities: [BookEntity] = []
     @Published var error: String?
     @Published var showError: Bool = false
     
@@ -43,6 +44,10 @@ final class BooksViewModel: ObservableObject {
             }, receiveValue: { searchResponse in
                 if self.currentPage == 0 {
                     self.books = searchResponse.docs
+                    self.bookEntities = self.books.map { book in
+                        BookEntity().fromBook(book)
+                    }
+                    print(self.bookEntities)
                 } else {
                     self.books.append(contentsOf: searchResponse.docs)
                 }

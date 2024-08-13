@@ -6,6 +6,20 @@
 //
 
 import SwiftUI
+import UISystem
+
+public struct BookCell: View {
+    
+    var book: IBook
+    
+    public var body: some View {
+        WBShadowedWrapperView {
+            HStack {
+                // WEBIMAGE СКОПИРОВАТЬ ИЗ ПРОЕКТА ВБ
+            }
+        }
+    }
+}
 
 struct BooksView: View {
     @StateObject private var viewModel = BooksViewModel()
@@ -30,7 +44,8 @@ struct BooksView: View {
                                      .frame(width: 60, height: 60)
 
                             } placeholder: {
-                                ProgressView()
+                                WBLoaderView(color: .wbPurple)
+                                    .frame(width: 30, height: 30)
                             }
                         }
                     }
