@@ -15,7 +15,11 @@ struct FavoriteEmptyView: View {
     
     var body: some View {
         VStack() {
-            WBFavoriteCardCount(countBooks: favoriteBooksCount, font: font)
+            WBFavoriteCardCount(countBooks: favoriteBooksCount,
+                                font: font,
+                                backgroundColor: .wbPurple,
+                                text: "favorites_cardCount".localized.uppercased())
+            .frame(height: 80)
             Spacer()
                 .frame(height: 23)
             Image("no_saved_books_image")
@@ -34,9 +38,8 @@ struct FavoriteEmptyView: View {
                            action: { //
             },
                            backgroundColor: .wbPurple)
-            .padding()
-            
         }
+        .padding()
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3F524A2C6BAA540082635E /* FavoriteEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F52492C6BAA540082635E /* FavoriteEmptyView.swift */; };
 		3F7D6D982C65488F00D69CD7 /* WB_FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6D972C65488F00D69CD7 /* WB_FinalProjectApp.swift */; };
 		3F7D6D9A2C65488F00D69CD7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6D992C65488F00D69CD7 /* RootView.swift */; };
 		3F7D6D9C2C65489200D69CD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D6D9B2C65489200D69CD7 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		300D92BD1A8FD71E40B9CA20 /* Pods_WB_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WB_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3F52492C6BAA540082635E /* FavoriteEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteEmptyView.swift; sourceTree = "<group>"; };
 		3F7D6D942C65488F00D69CD7 /* WB_FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WB_FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7D6D972C65488F00D69CD7 /* WB_FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WB_FinalProjectApp.swift; sourceTree = "<group>"; };
 		3F7D6D992C65488F00D69CD7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3F52482C6BAA540082635E /* FavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				3F3F52492C6BAA540082635E /* FavoriteEmptyView.swift */,
+			);
+			path = FavoriteView;
+			sourceTree = "<group>";
+		};
 		3F7D6D8B2C65488F00D69CD7 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		3F7D6DDB2C67972900D69CD7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F3F52482C6BAA540082635E /* FavoriteView */,
 				5A3FCEDD2C69F66C00457B19 /* BookSearchModule */,
 				5A3FCEDC2C69F65A00457B19 /* BooksModule */,
 				3F7D6DE92C6805D600D69CD7 /* TabsView */,
@@ -415,6 +426,7 @@
 				3F7D6DB72C664C6800D69CD7 /* String+Extension.swift in Sources */,
 				5A3FCEE32C69F6B700457B19 /* BooksView.swift in Sources */,
 				3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */,
+				3F3F524A2C6BAA540082635E /* FavoriteEmptyView.swift in Sources */,
 				3F7D6D982C65488F00D69CD7 /* WB_FinalProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
