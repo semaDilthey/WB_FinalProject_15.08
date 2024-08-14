@@ -24,7 +24,8 @@ struct BookCell: View {
                             .padding(.leading, 20)
                         
                     } placeholder: {
-                        ProgressView()
+                        WBLoaderView(color: .wbPurple)
+                            .frame(width: 30, height: 30)
                     }
                 } else {
                     Image("no_books_found_image")
