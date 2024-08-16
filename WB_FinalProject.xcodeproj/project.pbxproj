@@ -51,6 +51,8 @@
 		3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		3F7D6DEF2C68080A00D69CD7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4EFBDFB72C6FD18400A0A062 /* BookAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BookAPI; path = Modules/BookAPI; sourceTree = "<group>"; };
+		4EFBDFB82C6FD1C600A0A062 /* generateBookAPI.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generateBookAPI.sh; sourceTree = "<group>"; };
 		5A3FCED52C69F5FA00457B19 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5A3FCED82C69F62C00457B19 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		5A3FCEDA2C69F63E00457B19 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		3F7D6D8B2C65488F00D69CD7 = {
 			isa = PBXGroup;
 			children = (
+				4EFBDFB82C6FD1C600A0A062 /* generateBookAPI.sh */,
+				4EFBDFB72C6FD18400A0A062 /* BookAPI */,
 				3F7D6DC72C66C72200D69CD7 /* UISystem */,
 				3F7D6D962C65488F00D69CD7 /* WB_FinalProject */,
 				3F7D6D952C65488F00D69CD7 /* Products */,
