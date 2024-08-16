@@ -19,7 +19,7 @@ struct FavoriteView: View {
             Spacer()
                 .frame(height: 24)
             WBFavoriteCardCount(countBooks: favoriteBooksCount,
-                                font: font,
+                                font: .wb(.body1),
                                 backgroundColor: .wbPurple,
                                 text: "favorites_cardCount".localized.uppercased())
             List {
