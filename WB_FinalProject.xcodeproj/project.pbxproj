@@ -22,6 +22,7 @@
 		3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEA2C6805DF00D69CD7 /* Tabs.swift */; };
 		3F7D6DED2C6806B000D69CD7 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEC2C6806B000D69CD7 /* TabsView.swift */; };
 		3F7D6DF02C68080A00D69CD7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6DEF2C68080A00D69CD7 /* Router.swift */; };
+		3F8676352C6FEE4F00AF2B3D /* BookAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8676342C6FEE4F00AF2B3D /* BookAPI */; };
 		5A3FCED62C69F5FA00457B19 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED52C69F5FA00457B19 /* NetworkService.swift */; };
 		5A3FCED92C69F62C00457B19 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED82C69F62C00457B19 /* SearchResponse.swift */; };
 		5A3FCEDB2C69F63E00457B19 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEDA2C69F63E00457B19 /* Book.swift */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8676352C6FEE4F00AF2B3D /* BookAPI in Frameworks */,
 				AB581A501FAEE2F054BF60A5 /* Pods_WB_FinalProject.framework in Frameworks */,
 				3F7D6DCA2C66C83200D69CD7 /* UISystem in Frameworks */,
 			);
@@ -315,6 +317,7 @@
 			name = WB_FinalProject;
 			packageProductDependencies = (
 				3F7D6DC92C66C83200D69CD7 /* UISystem */,
+				3F8676342C6FEE4F00AF2B3D /* BookAPI */,
 			);
 			productName = WB_FinalProject;
 			productReference = 3F7D6D942C65488F00D69CD7 /* WB_FinalProject.app */;
@@ -662,6 +665,10 @@
 		3F7D6DC92C66C83200D69CD7 /* UISystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UISystem;
+		};
+		3F8676342C6FEE4F00AF2B3D /* BookAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BookAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
