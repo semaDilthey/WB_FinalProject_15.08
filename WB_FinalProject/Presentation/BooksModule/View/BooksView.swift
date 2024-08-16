@@ -10,7 +10,7 @@ import UISystem
 
 public struct BookCell: View {
     
-    var book: IBook
+    var book: any BookInterface
     
     public var body: some View {
         WBShadowedWrapperView {

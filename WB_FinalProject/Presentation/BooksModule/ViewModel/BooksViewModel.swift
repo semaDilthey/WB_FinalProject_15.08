@@ -10,7 +10,7 @@ import Combine
 
 final class BooksViewModel: ObservableObject {
     @Published var books: [Book] = []
-    @Published var bookEntities: [BookEntity] = []
+    @Published var bookEntities: [InAppBookModel] = []
     @Published var error: String?
     @Published var showError: Bool = false
     
@@ -20,6 +20,10 @@ final class BooksViewModel: ObservableObject {
     private var currentPage = 0
     private let pageSize = 10
     var isLoading = false
+    
+    // Сервис Realm. В принципе я его здесь и оставлю, потом буду просто все под него подбивать
+    let realm = RealmService<InAppBookModel>()
+    //
     
     func loadBooks(query: String) {
         guard !isLoading else { return }
@@ -45,9 +49,8 @@ final class BooksViewModel: ObservableObject {
                 if self.currentPage == 0 {
                     self.books = searchResponse.docs
                     self.bookEntities = self.books.map { book in
-                        BookEntity().fromBook(book)
+                        InAppBookModel.fromDecodableBook(book)
                     }
-                    print(self.bookEntities)
                 } else {
                     self.books.append(contentsOf: searchResponse.docs)
                 }
