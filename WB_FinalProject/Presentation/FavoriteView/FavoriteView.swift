@@ -9,7 +9,7 @@ import SwiftUI
 import UISystem
 
 struct FavoriteView: View {
-    @State var favoritesBook: [Book] = []
+    @State var favoritesBook: [BookResponse] = []
     var favoriteBooksCount: Int {
         return favoritesBook.count
     }
@@ -24,7 +24,7 @@ struct FavoriteView: View {
                                 text: "favorites_cardCount".localized.uppercased())
             List {
                 ForEach(favoritesBook, id: \.title) { book in
-                    BookCell(book: book)
+                    BookCell(book: book, onFavoriteTap: {_ in})
                 }
             }
             .padding(.leading, 8)

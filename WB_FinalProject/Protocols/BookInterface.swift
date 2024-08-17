@@ -7,7 +7,9 @@
 
 import RealmSwift
 
-protocol BookInterface: Identifiable {
+protocol AnyBook: BookResponseInterface, BookInterface {}
+
+protocol BookInterface: Identifiable, Hashable {
     associatedtype BookModel : Object
     var id: UUID { get set }
     var title: String { get set }
