@@ -7,9 +7,14 @@
 
 import Foundation
 import Alamofire
+import BookAPI
 import Combine
 
-final class NetworkService {
+protocol Networking {
+    func fetch<T: Decodable>(endpoint: String, parameters: [String: Any], responseType: T.Type) -> AnyPublisher<T, Error>
+}
+
+final class AlomofireService: Networking {
     private let baseURL: String
     
     init(baseURL: String) {
@@ -27,3 +32,4 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
 }
+
