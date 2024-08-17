@@ -14,7 +14,7 @@ final class BooksViewModel: ObservableObject {
     @Published var error: String?
     @Published var showError: Bool = false
     
-    private let networkService = NetworkService(baseURL: "https://openlibrary.org")
+    private let networkService = AlomofireService(baseURL: "https://openlibrary.org")
     private var cancellables = Set<AnyCancellable>()
     
     private var currentPage = 0

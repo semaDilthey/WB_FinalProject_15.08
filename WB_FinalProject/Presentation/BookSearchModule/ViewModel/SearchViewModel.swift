@@ -18,7 +18,7 @@ final class SearchViewModel: ObservableObject {
     private let pageSize = 10
     private var searchQuery = ""
     
-    private let networkService = NetworkService(baseURL: "https://openlibrary.org")
+    private let networkService = AlomofireService(baseURL: "https://openlibrary.org")
     private var cancellables = Set<AnyCancellable>()
     
     func searchBooks(query: String) {
