@@ -8,19 +8,6 @@
 import SwiftUI
 import UISystem
 
-public struct BookCell: View {
-    
-    var book: any BookInterface
-    
-    public var body: some View {
-        WBShadowedWrapperView {
-            HStack {
-                // WEBIMAGE СКОПИРОВАТЬ ИЗ ПРОЕКТА ВБ
-            }
-        }
-    }
-}
-
 struct BooksView: View {
     @StateObject private var viewModel = BooksViewModel()
     @State private var isLoading = false
