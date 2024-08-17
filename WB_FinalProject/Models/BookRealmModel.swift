@@ -38,7 +38,7 @@ extension BookRealmModel {
     
     func toBook() -> any BookInterface {
         let id = UUID(uuidString: self.id)
-        return InAppBookModel(id: id ?? UUID(),
+        return Book(id: id ?? UUID(),
                              title: self.title,
                              authors: self.authors.map { $0 },
                              image: UIImage(data: self.image ?? Data()), // ЗАМЕНИТЬ НА НОРМАЛЬНОЕ ПОЛУЧЕНИЕ КАРТИНКИ

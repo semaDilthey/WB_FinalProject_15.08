@@ -10,5 +10,5 @@ import Foundation
 struct SearchResponse: Codable {
     let numFound: Int
     let start: Int
-    let docs: [Book]
+    let docs: [BookResponse]
 }

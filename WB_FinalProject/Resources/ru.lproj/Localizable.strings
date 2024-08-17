@@ -20,3 +20,14 @@
 // TEXT
 "favorites_cardCount" = "Всего книг";
 "favorites_title" = "У вас пока нет книг,\n найдите свою книгу!";
+
+//SEARCH SCREEN
+"authors" = "Авторы:";
+"author" = "Автор:";
+"no_authors" = "Авторы не найдены";
+"searchbar_placeholder" = "Начните поиск...";
+
+"begin_search_view" = "Найдите книгу...";
+"loading_text" = "Ищем";
+"no_result_text" = "По вашему запросу ничего не найдено :(";
+

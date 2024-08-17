@@ -39,11 +39,9 @@ public struct WBWebImage<LoadingView: View>: View {
             case .success(let image):
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
             case .error:
                 Image(systemName: "photo")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
             }
         }
         .task {

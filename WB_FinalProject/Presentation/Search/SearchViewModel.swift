@@ -2,27 +2,31 @@
 //  SearchViewModel.swift
 //  WB_FinalProject
 //
-//  Created by Анастасия on 12.08.2024.
+//  Created by Семен Гайдамакин on 17.08.2024.
 //
 
-import Foundation
 import SwiftUI
 import Combine
 
+enum SearchState {
+    case begin, loading, result, noResult
+}
+
 final class SearchViewModel: ObservableObject {
-    @Published var books: [Book] = []
-    @Published var isLoading: Bool = false
+    @Published var books: [BookResponse] = []
     @Published var hasMoreBooks: Bool = true
+    
+    @Published var state: SearchState = .begin
+    
+    @Published var query = ""
     
     private var currentPage = 0
     private let pageSize = 10
-    private var searchQuery = ""
     
     private let networkService = AlomofireService(baseURL: "https://openlibrary.org")
     private var cancellables = Set<AnyCancellable>()
     
     func searchBooks(query: String) {
-        self.searchQuery = query
         self.currentPage = 0
         self.books = []
         self.hasMoreBooks = true
@@ -30,29 +34,34 @@ final class SearchViewModel: ObservableObject {
     }
     
     func loadMoreBooks() {
-        guard !isLoading, hasMoreBooks else { return }
+        guard state != .loading, hasMoreBooks else { return }
         
-        isLoading = true
+        state = .loading
         let parameters: [String: Any] = [
-            "q": searchQuery,
+            "q": query,
             "start": currentPage * pageSize,
             "limit": pageSize
         ]
         
         networkService.fetch(endpoint: "/search.json", parameters: parameters, responseType: SearchResponse.self)
             .sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
-                self.isLoading = false
+                guard let self else { return }
                 
                 if case .failure(let error) = completion {
                     print("Error: \(error.localizedDescription)")
                     self.hasMoreBooks = false
+                    self.state = .noResult
                 }
             }, receiveValue: { [weak self] searchResponse in
                 guard let self = self else { return }
                 self.books.append(contentsOf: searchResponse.docs)
                 self.currentPage += 1
                 self.hasMoreBooks = searchResponse.docs.count == self.pageSize
+                if searchResponse.docs.isEmpty {
+                    self.state = .noResult
+                } else {
+                    self.state = .result
+                }
             })
             .store(in: &cancellables)
     }
