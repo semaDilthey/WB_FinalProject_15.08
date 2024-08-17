@@ -2,41 +2,36 @@
 //  FavoritesView.swift
 //  WB_FinalProject
 //
-//  Created by Daria on 13.08.2024.
+//  Created by Daria & Semyon on 13.08.2024.
 //
 
 import SwiftUI
 import UISystem
 
 struct FavoriteView: View {
-    @State var favoritesBook: [BookResponse] = []
-    var favoriteBooksCount: Int {
-        return favoritesBook.count
-    }
+    
+    @StateObject private var viewModel: FavoritesViewModel = .init()
     
     var body: some View {
-        VStack() {
-            Spacer()
-                .frame(height: 24)
-            WBFavoriteCardCount(countBooks: favoriteBooksCount,
-                                font: .wb(.body1),
-                                backgroundColor: .wbPurple,
-                                text: "favorites_cardCount".localized.uppercased())
-            List {
-                ForEach(favoritesBook, id: \.title) { book in
-                    BookCell(book: book, onFavoriteTap: {_ in})
-                }
+        VStack {
+            totalBooksView
+                .frame(height: 85)
+            switch viewModel.state {
+            case .empty:
+                FavoriteEmptyView()
+            case .hasData:
+                FavoritesNonEmptyView()
+                    .environmentObject(viewModel)
             }
-            .padding(.leading, 8)
-            .listStyle(.inset)
         }
-        .onAppear {
-            loadFavoriteBooks()
-        }
+        .padding()
     }
     
-    func loadFavoriteBooks() {
-        //
+    private var totalBooksView: some View {
+        WBFavoriteCardCount(countBooks: viewModel.books.count,
+                            font: .wb(.heading2),
+                            backgroundColor: .wbPurple,
+                            text: "favorites_cardCountTitle".localized.uppercased())
     }
 }
 

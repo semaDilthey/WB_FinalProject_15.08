@@ -26,10 +26,12 @@ public struct WBFavoriteCardCount: View {
             HStack(spacing: 26) {
                 Text(text)
                    .font(font)
+                Spacer()
                 Text("\(countBooks)")
                     .font(font)
             }
-            .padding(.leading, 26)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 26)
         }
         .cornerRadius(15)
     }

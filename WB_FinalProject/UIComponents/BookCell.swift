@@ -12,10 +12,10 @@ typealias BookModelType = AnyHashable
 
 struct BookCell: View {
         
-    @State var isFavorite = false
-
     var book: BookModelType
     var onFavoriteTap: (Book) -> Void
+    
+    @State private var image: UIImage?
         
     var body: some View {
        WBShadowedWrapperView {
@@ -37,7 +37,7 @@ struct BookCell: View {
            WBWebImage(urlString: imageUrl(coverI: bookResponse.cover_i)) {
                WBLoaderView(color: .wbPurple)
            } onImageLoaded: { image in
-               // MARK: Тут что-то делаем с полученной картинкой, например по сохранению отдаем модели картинку которую сохраним
+               self.image = image
            }
            .scaledToFit()
            .padding()
@@ -68,7 +68,8 @@ struct BookCell: View {
                Image(uiImage: image)
                    .resizable()
                    .scaledToFit()
-                   .padding(.leading)
+                   .frame(width: UI.maxImageWidth)
+                   .padding()
            }
            VStack(alignment: .leading) {
                Text(book.title)
@@ -92,11 +93,15 @@ struct BookCell: View {
     
     private var favoriteButton: some View {
         Button {
-            isFavorite.toggle()
             if let book = book as? (any BookResponseInterface) {
-                onFavoriteTap(Book.fromDecodableBook(book as! BookResponse))
+                var book = Book.fromDecodableBook(book as! BookResponse)
+                book.image = self.image
+                book.isFavorite.toggle()
+                onFavoriteTap(book)
             }
-            if let book = book as? Book {
+            if var book = book as? Book {
+                book.image = self.image
+                book.isFavorite.toggle()
                 onFavoriteTap(book)
             }
         } label: {
@@ -112,6 +117,16 @@ struct BookCell: View {
     private func imageUrl(coverI: Int?) -> String {
         guard let coverI else { return "" }
         return "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg"
+    }
+    
+    private var isFavorite: Bool {
+        if let book = book as? (any BookResponseInterface) {
+            return false
+        }
+        if let book = book as? Book {
+            return book.isFavorite
+        }
+        return false
     }
    
 }

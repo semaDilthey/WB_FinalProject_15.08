@@ -9,17 +9,11 @@ import SwiftUI
 import UISystem
 
 struct FavoriteEmptyView: View {
-    @State private var favoriteBooksCount = 0
-    var font: Font = .wb(.heading1)
-    var font2: Font = .wb(.subheading2)
+    
+    @Environment(\.router) var router
     
     var body: some View {
         VStack() {
-            WBFavoriteCardCount(countBooks: favoriteBooksCount,
-                                font: font,
-                                backgroundColor: .wbPurple,
-                                text: "favorites_cardCount".localized.uppercased())
-            .frame(height: 80)
             Spacer()
                 .frame(height: 23)
             Image("no_saved_books_image")
@@ -29,14 +23,13 @@ struct FavoriteEmptyView: View {
                 .frame(height: 23)
             Text("favorites_title".localized)
                 .frame(width: 200)
-                .font(font2)
+                .font(.wb(.subheading2))
                 .multilineTextAlignment(.center)
             Spacer()
                 .frame(height: 58)
-            
+        
             WBActionButton(title: "button_search_book".localized,
-                           action: { //
-            },
+                           action: { router.selectedTab = .search },
                            backgroundColor: .wbPurple)
         }
         .padding()
