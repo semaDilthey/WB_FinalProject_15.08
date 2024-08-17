@@ -10,16 +10,17 @@ import Alamofire
 import BookAPI
 import Combine
 
-protocol Networking {
-    func fetch<T: Decodable>(endpoint: String, parameters: [String: Any], responseType: T.Type) -> AnyPublisher<T, Error>
-}
-
-final class AlomofireService: Networking {
+final class AlomofireService {
+    
     private let baseURL: String
     
     init(baseURL: String) {
         self.baseURL = baseURL
     }
+
+}
+
+extension AlomofireService: Networking {
     
     func fetch<T: Decodable>(endpoint: String, parameters: [String: Any] = [:], responseType: T.Type) -> AnyPublisher<T, Error> {
         let url = "\(baseURL)\(endpoint)"
@@ -31,5 +32,6 @@ final class AlomofireService: Networking {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
 }
 
