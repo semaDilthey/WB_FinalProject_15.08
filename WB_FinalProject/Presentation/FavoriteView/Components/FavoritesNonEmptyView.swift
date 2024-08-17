@@ -1,5 +1,5 @@
 //
-//  SearchResultView.swift
+//  FavoritesNonEmptyView.swift
 //  WB_FinalProject
 //
 //  Created by Семен Гайдамакин on 17.08.2024.
@@ -7,19 +7,16 @@
 
 import SwiftUI
 
-struct SearchResultView: View {
+struct FavoritesNonEmptyView: View {
     
-    @EnvironmentObject var viewModel: SearchViewModel
+    @EnvironmentObject var viewModel: FavoritesViewModel
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
-                ForEach(viewModel.books, id: \.self) { book in
+                ForEach(viewModel.books) { book in
                     BookCell(book: book) { book in
-                        // ON FAVORITE TAP
-                        #warning("Код ниже утащить во вьюмодель")
-                        let realm = RealmService<Book>()
-                        try! realm.save(book)
+                        // ON REMOVE FROM FAVORITES TAP
                     }
                 }
                 .frame(height: UI.cellHeight)
@@ -27,7 +24,6 @@ struct SearchResultView: View {
             }
         }
     }
-    
 }
 
 fileprivate enum UI {
@@ -35,3 +31,7 @@ fileprivate enum UI {
     static let interItemPadding: CGFloat = 8
 }
 
+#Preview {
+    FavoritesNonEmptyView()
+        .environmentObject(FavoritesViewModel())
+}

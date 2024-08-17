@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class Router: ObservableObject {
     
@@ -19,3 +20,16 @@ final class Router: ObservableObject {
         
     }
 }
+
+struct RouterKey: EnvironmentKey {
+    static let defaultValue: Router = .shared
+}
+
+extension EnvironmentValues {
+    var router: Router {
+        get { self[RouterKey.self] }
+        set { self[RouterKey.self] = newValue }
+    }
+}
+
+

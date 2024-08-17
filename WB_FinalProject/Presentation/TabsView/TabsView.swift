@@ -31,7 +31,7 @@ struct TabsView: View {
     private func TabItem(_ tab: Tabs) -> some View {
         switch tab {
         case .favorite:
-            BooksView()
+            FavoriteView()
         case .search:
             SearchView()
         }
