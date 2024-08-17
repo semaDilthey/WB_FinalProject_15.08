@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct BooksView: View {
     @StateObject private var viewModel = BooksViewModel()
@@ -30,7 +31,8 @@ struct BooksView: View {
                                      .frame(width: 60, height: 60)
 
                             } placeholder: {
-                                ProgressView()
+                                WBLoaderView(color: .wbPurple)
+                                    .frame(width: 30, height: 30)
                             }
                         }
                     }
