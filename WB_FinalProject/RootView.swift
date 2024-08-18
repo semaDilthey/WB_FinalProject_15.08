@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RootView<Content>: View where Content: View {
         
-    @StateObject private var viewModel = OnboardingViewModel.shared
+    @StateObject private var viewModel = OnboardingViewModel()
 
     let content: Content
     

@@ -25,6 +25,9 @@ struct FavoriteView: View {
             }
         }
         .padding()
+        .onAppear {
+            viewModel.fetchBooks()
+        }
     }
     
     private var totalBooksView: some View {

@@ -11,14 +11,6 @@ import UISystem
 struct OnboardingView: View {
     
     @EnvironmentObject var viewModel: OnboardingViewModel
-            
-    private var onboardingPage : OnboardingModel {
-        switch viewModel.currentPage {
-        case 1: return .first
-        case 2: return .second
-        default: return .second
-        }
-    }
     
     var body: some View {
         ZStack {
@@ -39,18 +31,18 @@ struct OnboardingView: View {
     }
     
     private var imageView: some View {
-        Image(onboardingPage.image)
+        Image(viewModel.onboardingPage.image)
             .resizable()
             .scaledToFit()
     }
     
     private var textsView: some View {
         VStack(alignment: .center) {
-            Text(onboardingPage.text.title)
+            Text(viewModel.onboardingPage.text.title)
                 .font(.wb(.heading1))
                 .foregroundStyle(.wbPurple)
                 .padding(.vertical)
-            Text(onboardingPage.text.subtitle)
+            Text(viewModel.onboardingPage.text.subtitle)
                 .font(.wb(.subheading2))
                 .foregroundStyle(.wbText)
             }
@@ -80,5 +72,5 @@ fileprivate enum ScreenConstants {
 
 #Preview {
     OnboardingView()
-        .environmentObject(OnboardingViewModel.shared)
+        .environmentObject(OnboardingViewModel())
 }

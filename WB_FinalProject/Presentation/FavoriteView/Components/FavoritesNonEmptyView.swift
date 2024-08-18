@@ -15,8 +15,9 @@ struct FavoritesNonEmptyView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
                 ForEach(viewModel.books) { book in
-                    BookCell(book: book) { book in
-                        // ON REMOVE FROM FAVORITES TAP
+                    BookCell(book: book) {_ in}
+                    .swipeToDelete {
+                        withAnimation { viewModel.delete(book) }
                     }
                 }
                 .frame(height: UI.cellHeight)

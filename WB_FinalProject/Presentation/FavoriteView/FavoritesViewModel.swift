@@ -13,6 +13,10 @@ enum FavoriteScreenState {
 
 final class FavoritesViewModel: ObservableObject {
         
+    //MARK: - Properties
+    
+    //MARK: Observable properties
+    
     @Published var state: FavoriteScreenState = .empty
     @Published var books: [Book] = [] {
         didSet {
@@ -20,19 +24,31 @@ final class FavoritesViewModel: ObservableObject {
         }
     }
     
+    //MARK: Service properties
+    
     private let dataBase: any Persistable
+    
+    //MARK: - Initialization
     
     init(dataBase: any Persistable = RealmService<Book>()) {
         self.dataBase = dataBase
-        self.fetchBooks()
     }
     
-    private func fetchBooks() {
+    //MARK: - Public methods
+    
+    func fetchBooks() {
         self.books = dataBase.fetchAll() as! [Book]
     }
     
-//    func removeFromFavs(_ book: Book) {
-//        self.dataBase.updateStatus(book)
-//    }
+    func delete(_ book: Book) {
+        if let dataBase = dataBase as? RealmService<Book> {
+            do {
+                try dataBase.delete(book)
+                    books.removeAll { $0.id == book.id }
+            } catch {
+                print(error)
+            }
+        }
+    }
     
 }

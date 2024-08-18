@@ -13,9 +13,6 @@ private let totalPages = 2
 // MARK: - Onboarding Status Manager
 final class OnboardingViewModel: ObservableObject {
     
-    // MARK: - Properties
-    static let shared = OnboardingViewModel()
-    
     // Текущая страница онбординга, сохраненная в UserDefaults через App Storage
     @AppStorage("currentPage") var currentPage: Int = 1 {
         didSet {
@@ -26,9 +23,17 @@ final class OnboardingViewModel: ObservableObject {
     
     @Published var appState: AppState = .onboarding
     
+    var onboardingPage : OnboardingModel {
+        switch currentPage {
+        case 1: return .first
+        case 2: return .second
+        default: return .second
+        }
+    }
+    
     // MARK: - Initialization
     
-    private init() {
+    init() {
         updateOnboardingState()
     }
     
