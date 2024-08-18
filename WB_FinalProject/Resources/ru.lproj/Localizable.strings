@@ -18,7 +18,7 @@
 // NAV BAR
 
 // TEXT
-"favorites_cardCount" = "Всего книг";
+"favorites_cardCountTitle" = "Всего книг";
 "favorites_title" = "У вас пока нет книг,\n найдите свою книгу!";
 
 //SEARCH SCREEN
