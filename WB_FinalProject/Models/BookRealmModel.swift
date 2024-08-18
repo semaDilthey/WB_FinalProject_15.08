@@ -61,7 +61,7 @@ extension BookRealmModel {
         return Book(id: id ?? UUID(),
                     title: self.title,
                     authors: self.authors.map { $0 },
-                    image: UIImage(data: self.image ?? Data()), // ЗАМЕНИТЬ НА НОРМАЛЬНОЕ ПОЛУЧЕНИЕ КАРТИНКИ
+                    image: UIImage(data: self.image ?? Data()),
                     isFav: self.isFavorite,
                     firstYear: self.firstYear,
                     rating: self.rating,
