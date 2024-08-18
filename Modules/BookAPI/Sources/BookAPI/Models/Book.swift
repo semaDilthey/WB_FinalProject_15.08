@@ -32,8 +32,14 @@ public struct Book: Codable, JSONEncodable, Hashable {
     public var authorKey: [String]?
     /** Whether the book is available for public scanning. */
     public var publicScanB: Bool?
+    /** The rating of the book. */
+    public var rating: Double?
+    /** The subjects of the book. */
+    public var subject: [String]?
+    /** The languages of the book. */
+    public var language: [String]?
 
-    public init(coverI: Int? = nil, hasFulltext: Bool? = nil, editionCount: Int? = nil, title: String? = nil, authorName: [String]? = nil, firstPublishYear: Int? = nil, key: String? = nil, ia: [String]? = nil, authorKey: [String]? = nil, publicScanB: Bool? = nil) {
+    public init(coverI: Int? = nil, hasFulltext: Bool? = nil, editionCount: Int? = nil, title: String? = nil, authorName: [String]? = nil, firstPublishYear: Int? = nil, key: String? = nil, ia: [String]? = nil, authorKey: [String]? = nil, publicScanB: Bool? = nil, rating: Double? = nil, subject: [String]? = nil, language: [String]? = nil) {
         self.coverI = coverI
         self.hasFulltext = hasFulltext
         self.editionCount = editionCount
@@ -44,6 +50,9 @@ public struct Book: Codable, JSONEncodable, Hashable {
         self.ia = ia
         self.authorKey = authorKey
         self.publicScanB = publicScanB
+        self.rating = rating
+        self.subject = subject
+        self.language = language
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -57,6 +66,9 @@ public struct Book: Codable, JSONEncodable, Hashable {
         case ia
         case authorKey = "author_key"
         case publicScanB = "public_scan_b"
+        case rating = "ratings_average"
+        case subject = "subject"
+        case language = "language"
     }
 
     // Encodable protocol methods
@@ -73,6 +85,9 @@ public struct Book: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(ia, forKey: .ia)
         try container.encodeIfPresent(authorKey, forKey: .authorKey)
         try container.encodeIfPresent(publicScanB, forKey: .publicScanB)
+        try container.encodeIfPresent(rating, forKey: .rating)
+        try container.encodeIfPresent(subject, forKey: .subject)
+        try container.encodeIfPresent(language, forKey: .language)
     }
 }
 

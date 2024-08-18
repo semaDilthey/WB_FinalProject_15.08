@@ -13,20 +13,23 @@ struct FavoriteView: View {
     @StateObject private var viewModel: FavoritesViewModel = .init()
     
     var body: some View {
-        VStack {
-            totalBooksView
-                .frame(height: 85)
-            switch viewModel.state {
-            case .empty:
-                FavoriteEmptyView()
-            case .hasData:
-                FavoritesNonEmptyView()
-                    .environmentObject(viewModel)
+        NavigationView {
+            VStack {
+                totalBooksView
+                    .frame(height: 85)
+                switch viewModel.state {
+                case .empty:
+                    FavoriteEmptyView()
+                case .hasData:
+                    FavoritesNonEmptyView()
+                        .environmentObject(viewModel)
+                }
             }
-        }
-        .padding()
-        .onAppear {
-            viewModel.fetchBooks()
+            .padding()
+            .foregroundStyle(.black)
+            .onAppear {
+                viewModel.fetchBooks()
+            }
         }
     }
     

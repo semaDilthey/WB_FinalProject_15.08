@@ -32,7 +32,6 @@ extension BookAPIServiceAdapter: Networking {
         }
         .eraseToAnyPublisher()
     }
-    
 }
 
 extension SearchBooks200Response {
@@ -40,10 +39,14 @@ extension SearchBooks200Response {
     func toSearchResponse() -> SearchResponse {
         return SearchResponse(numFound: 0, start: 0, docs: self.docs.map { doc in
             return doc.map { book in
-                return BookResponse(title: book.title ?? "No title", author_name: book.authorName, cover_i: book.coverI)
-                
-            }
+                return BookResponse(title: book.title ?? "No title",
+                                    author_name: book.authorName,
+                                    cover_i: book.coverI,
+                                    first_publish_year: book.firstPublishYear,
+                                    ratings_average: book.rating,
+                                    subject: book.subject,
+                                    language: book.language
+                )}
         }!)
     }
-    
 }

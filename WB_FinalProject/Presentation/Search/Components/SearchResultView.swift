@@ -15,16 +15,18 @@ struct SearchResultView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
                 ForEach(viewModel.books, id: \.self) { book in
-                    BookCell(book: book) { book in
-                        viewModel.saveBook(book)
+                    NavigationLink(destination: BookDetailedView(book: book, onFavoriteTap: { _ in
+                    })) {
+                        BookCell(book: book) { book in
+                            viewModel.saveBook(book)
+                        }
                     }
+                    .frame(height: UI.cellHeight)
+                    .padding(.vertical, UI.interItemPadding)
                 }
-                .frame(height: UI.cellHeight)
-                .padding(.vertical, UI.interItemPadding)
             }
         }
     }
-    
 }
 
 fileprivate enum UI {

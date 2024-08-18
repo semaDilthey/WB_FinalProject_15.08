@@ -16,6 +16,10 @@ protocol BookInterface: Identifiable, Hashable {
     var authors: [String]? { get set }
     var image: UIImage? { get set }
     var isFavorite: Bool { get set }
+    var firstYear: Int? { get set }
+    var rating: Double? { get set }
+    var subject: [String]? { get set }
+    var language: [String]? { get set }
     
     func toRealm() -> BookModel
 }

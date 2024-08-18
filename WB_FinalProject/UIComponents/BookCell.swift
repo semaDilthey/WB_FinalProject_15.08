@@ -59,6 +59,7 @@ struct BookCell: View {
            .minimumScaleFactor(0.5)
            .multilineTextAlignment(.leading)
            .padding(.vertical)
+           .foregroundStyle(.black)
            Spacer()
            favoriteButton
        }
@@ -81,9 +82,9 @@ struct BookCell: View {
                    .font(.wb(.subheading1))
                    .padding(.bottom)
                if book.authors?.count ?? 0 > 1 {
-                   Text("\("authors".localized) \(book.authors?.joined(separator: ", ") ?? "no_authors".localized))")
+                   Text("\("authors".localized) \(book.authors?.joined(separator: ", ") ?? "no_authors".localized)")
                } else {
-                   Text("\("author".localized) \(book.authors?.joined(separator: ", ") ?? "no_authors".localized))")
+                   Text("\("author".localized) \(book.authors?.joined(separator: ", ") ?? "no_authors".localized)")
                }
                Spacer()
            }
@@ -91,6 +92,7 @@ struct BookCell: View {
            .minimumScaleFactor(0.5)
            .multilineTextAlignment(.leading)
            .padding(.vertical)
+           .foregroundStyle(.black)
            Spacer()
        }
    }
@@ -136,12 +138,9 @@ struct BookCell: View {
              isFavorite = existingBook.isFavorite
          }
      }
-   
 }
 
 fileprivate enum UI {
     static let maxImageWidth: CGFloat = 85
     static let iconSize: CGFloat = 25
 }
-
-

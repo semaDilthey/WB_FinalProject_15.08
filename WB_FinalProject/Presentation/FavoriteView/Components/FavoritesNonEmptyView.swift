@@ -15,13 +15,16 @@ struct FavoritesNonEmptyView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
                 ForEach(viewModel.books) { book in
-                    BookCell(book: book) {_ in}
-                    .swipeToDelete {
-                        withAnimation { viewModel.delete(book) }
+                    NavigationLink(destination: BookDetailedView(book: book, onFavoriteTap: { _ in
+                    })) {
+                        BookCell(book: book, onFavoriteTap: { _ in })
+                            .swipeToDelete {
+                                withAnimation { viewModel.delete(book) }
+                            }
                     }
+                    .frame(height: UI.cellHeight)
+                    .padding(.vertical, UI.interItemPadding)
                 }
-                .frame(height: UI.cellHeight)
-                .padding(.vertical, UI.interItemPadding)
             }
         }
     }
