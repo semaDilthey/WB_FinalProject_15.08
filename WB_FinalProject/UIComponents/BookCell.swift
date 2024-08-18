@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UISystem
+import RealmSwift
 
 typealias BookModelType = AnyHashable
 
@@ -16,6 +17,7 @@ struct BookCell: View {
     var onFavoriteTap: (Book) -> Void
     
     @State private var image: UIImage?
+    @State private var isFavorite: Bool = false
         
     var body: some View {
        WBShadowedWrapperView {
@@ -60,6 +62,9 @@ struct BookCell: View {
            Spacer()
            favoriteButton
        }
+       .onAppear {
+           checkIfBookIsFavorite(bookResponse)
+       }
    }
    
    private func bookInterfaceCell(_ book: any BookInterface) -> some View {
@@ -87,23 +92,12 @@ struct BookCell: View {
            .multilineTextAlignment(.leading)
            .padding(.vertical)
            Spacer()
-           favoriteButton
        }
    }
     
     private var favoriteButton: some View {
         Button {
-            if let book = book as? (any BookResponseInterface) {
-                var book = Book.fromDecodableBook(book as! BookResponse)
-                book.image = self.image
-                book.isFavorite.toggle()
-                onFavoriteTap(book)
-            }
-            if var book = book as? Book {
-                book.image = self.image
-                book.isFavorite.toggle()
-                onFavoriteTap(book)
-            }
+           didTappedFavorite()
         } label: {
             Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
                 .resizable()
@@ -119,15 +113,29 @@ struct BookCell: View {
         return "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg"
     }
     
-    private var isFavorite: Bool {
+    private func didTappedFavorite() {
         if let book = book as? (any BookResponseInterface) {
-            return false
+            var book = Book.fromDecodableBook(book as! BookResponse)
+            book.image = self.image
+            book.isFavorite.toggle()
+            self.isFavorite = book.isFavorite
+            onFavoriteTap(book)
         }
-        if let book = book as? Book {
-            return book.isFavorite
+        if var book = book as? Book {
+            book.image = self.image
+            book.isFavorite.toggle()
+            self.isFavorite = book.isFavorite
+            onFavoriteTap(book)
         }
-        return false
     }
+    
+    private func checkIfBookIsFavorite(_ bookResponse: any BookResponseInterface) {
+         let realm = try? Realm()
+         let predicate = NSPredicate(format: "title == %@ AND ANY authors == %@", bookResponse.title, bookResponse.author_name?.first ?? "")
+         if let existingBook = realm?.objects(BookRealmModel.self).filter(predicate).first {
+             isFavorite = existingBook.isFavorite
+         }
+     }
    
 }
 

@@ -13,7 +13,7 @@ protocol Persistable {
     var realm: Realm? { get }
     func save(_ object: Model) throws
     func fetchAll() -> [Model]
-    func updateStatus(_ object: Model)
+    func delete(_ object: Model) throws
 }
 
 extension Persistable where Model : BookInterface {
@@ -21,6 +21,22 @@ extension Persistable where Model : BookInterface {
     func save(_ object: Model) throws {
         guard let realm else { return }
         let objectToSave = object.toRealm()
+        
+         var predicate = NSPredicate(format: "title == %@", object.title)
+         
+         for author in object.authors ?? [] {
+             let authorPredicate = NSPredicate(format: "ANY authors == %@", author)
+             predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, authorPredicate])
+         }
+        
+        let existingObject = realm.objects(BookRealmModel.self)
+            .filter(predicate)
+            .first
+        
+        guard existingObject == nil else {
+            throw NSError(domain: "ObjectAlreadyExists", code: 1, userInfo: nil)
+        }
+        
         do {
             try realm.write {
                 realm.add(objectToSave)
@@ -36,16 +52,20 @@ extension Persistable where Model : BookInterface {
         return allBooks.map { $0.toBook() as! Model }
     }
     
-    func updateStatus(_ object: Model) {
+    func delete(_ object: Model) throws {
+        guard let realm else { return }
+
         let predicate = NSPredicate(format: "id == %@", object.id.uuidString)
-        let objectToUpdate = realm?.objects(BookRealmModel.self).filter(predicate).first
+        guard let objectToDelete = realm.objects(BookRealmModel.self).filter(predicate).first else {
+            throw NSError(domain: "ObjectNotFound", code: 1, userInfo: nil)
+        }
 
         do {
-            try realm?.write {
-                if let objectToUpdate {
-                    objectToUpdate.isFavorite = object.isFavorite
-                }
+            try realm.write {
+                realm.delete(objectToDelete)
             }
-        } catch { }
+        } catch {
+            throw error
+        }
     }
 }

@@ -16,10 +16,7 @@ struct SearchResultView: View {
             LazyVStack {
                 ForEach(viewModel.books, id: \.self) { book in
                     BookCell(book: book) { book in
-                        // ON FAVORITE TAP
-                        #warning("Код ниже утащить во вьюмодель")
-                        let realm = RealmService<Book>()
-                        try! realm.save(book)
+                        viewModel.saveBook(book)
                     }
                 }
                 .frame(height: UI.cellHeight)

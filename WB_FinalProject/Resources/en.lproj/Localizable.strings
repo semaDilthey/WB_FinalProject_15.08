@@ -31,4 +31,6 @@
 "loading_text" = "Searching";
 "no_result_text" = "Can't find anything :(";
 
+"error_already_exists" = "This object already exists";
+
 

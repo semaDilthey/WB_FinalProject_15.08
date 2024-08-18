@@ -30,6 +30,9 @@ struct SearchView: View {
         .onChange(of: viewModel.hasMoreBooks) { newVal in
                 viewModel.loadMoreBooks()
         }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(title: Text("error_already_exists".localized))
+        }
     }
     
     private var searchField: some View {

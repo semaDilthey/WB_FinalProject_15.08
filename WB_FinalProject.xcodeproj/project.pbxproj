@@ -22,6 +22,7 @@
 		3F560B6A2C7136EF006291BA /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F560B692C7136EF006291BA /* BookCell.swift */; };
 		3F560B6C2C713BE6006291BA /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F560B6B2C713BE6006291BA /* FavoritesViewModel.swift */; };
 		3F560B6F2C713F95006291BA /* FavoritesNonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F560B6E2C713F95006291BA /* FavoritesNonEmptyView.swift */; };
+		3F560B722C71FF6D006291BA /* SwipeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F560B712C71FF6D006291BA /* SwipeModifier.swift */; };
 		3F7D6D982C65488F00D69CD7 /* WB_FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6D972C65488F00D69CD7 /* WB_FinalProjectApp.swift */; };
 		3F7D6D9A2C65488F00D69CD7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6D992C65488F00D69CD7 /* RootView.swift */; };
 		3F7D6D9C2C65489200D69CD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D6D9B2C65489200D69CD7 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		3F560B692C7136EF006291BA /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		3F560B6B2C713BE6006291BA /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		3F560B6E2C713F95006291BA /* FavoritesNonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNonEmptyView.swift; sourceTree = "<group>"; };
+		3F560B712C71FF6D006291BA /* SwipeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModifier.swift; sourceTree = "<group>"; };
 		3F7D6D942C65488F00D69CD7 /* WB_FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WB_FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7D6D972C65488F00D69CD7 /* WB_FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WB_FinalProjectApp.swift; sourceTree = "<group>"; };
 		3F7D6D992C65488F00D69CD7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,23 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3F560B702C71FF60006291BA /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3F560B712C71FF6D006291BA /* SwipeModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		3F560B732C72037C006291BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D6DB52C664C5800D69CD7 /* Extensions */,
+				3F560B702C71FF60006291BA /* Modifiers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		3F7D6D8B2C65488F00D69CD7 = {
 			isa = PBXGroup;
 			children = (
@@ -197,13 +216,13 @@
 		3F7D6D962C65488F00D69CD7 /* WB_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				3F560B732C72037C006291BA /* Helpers */,
 				3F560B682C7136E3006291BA /* UIComponents */,
 				3F379A1B2C6F6471002736CC /* Protocols */,
 				5A3FCED72C69F61800457B19 /* Models */,
 				3F7D6DEE2C6807FD00D69CD7 /* Service */,
 				3F7D6DDB2C67972900D69CD7 /* Presentation */,
 				3F7D6DB82C664CD000D69CD7 /* Resources */,
-				3F7D6DB52C664C5800D69CD7 /* Extensions */,
 				3F7D6D972C65488F00D69CD7 /* WB_FinalProjectApp.swift */,
 				3F7D6D992C65488F00D69CD7 /* RootView.swift */,
 				3F7D6D9D2C65489200D69CD7 /* Preview Content */,
@@ -462,6 +481,7 @@
 				3F8676372C70DE3100AF2B3D /* BookAPIServiceAdapter.swift in Sources */,
 				3F7D6DEB2C6805DF00D69CD7 /* Tabs.swift in Sources */,
 				3F560B542C70E1D7006291BA /* Networking.swift in Sources */,
+				3F560B722C71FF6D006291BA /* SwipeModifier.swift in Sources */,
 				3F7D6DE62C679E5500D69CD7 /* OnboardingViewModel.swift in Sources */,
 				3F7D6DE42C679DA900D69CD7 /* OnboardingModel.swift in Sources */,
 				3F7D6D9A2C65488F00D69CD7 /* RootView.swift in Sources */,
