@@ -12,26 +12,28 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     
     var body: some View {
-        VStack {
-            searchField
-            switch viewModel.state {
-            case .begin:
-                BeginSearchView()
-            case .loading:
-                LoadingSearchResultView()
-            case .result:
-                SearchResultView()
-                    .environmentObject(viewModel)
-            case .noResult:
-                NoSearchResultsView()
+        NavigationView {
+            VStack {
+                searchField
+                switch viewModel.state {
+                case .begin:
+                    BeginSearchView()
+                case .loading:
+                    LoadingSearchResultView()
+                case .result:
+                    SearchResultView()
+                        .environmentObject(viewModel)
+                case .noResult:
+                    NoSearchResultsView()
+                }
             }
-        }
-        .padding()
-        .onChange(of: viewModel.hasMoreBooks) { newVal in
+            .padding()
+            .onChange(of: viewModel.hasMoreBooks) { newVal in
                 viewModel.loadMoreBooks()
-        }
-        .alert(isPresented: $viewModel.showAlert) {
-            Alert(title: Text("error_already_exists".localized))
+            }
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("error_already_exists".localized))
+            }
         }
     }
     
@@ -44,8 +46,6 @@ struct SearchView: View {
         }
     }
 }
-
-
 
 #Preview {
     SearchView()
