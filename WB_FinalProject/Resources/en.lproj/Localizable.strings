@@ -33,4 +33,9 @@
 
 "error_already_exists" = "This object already exists";
 
+//DETAILED SCREEN
+"rating" = "Rating: ";
+"firstly_published" = "Firstly published:";
+"language" = "Language:";
+"subject" = "Subject:";
 

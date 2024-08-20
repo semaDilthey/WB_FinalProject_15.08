@@ -40,17 +40,6 @@ struct Book: BookInterface, Hashable {
         self.language = language
     }
     
-    init() {
-        self.id = UUID()
-        self.title = ""
-        self.authors = []
-        self.image = nil
-        self.isFavorite = false
-        self.firstYear = nil
-        self.rating = nil
-        self.subject = []
-        self.language = []
-    }
 }
 
 extension Book {
