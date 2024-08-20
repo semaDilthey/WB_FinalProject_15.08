@@ -1,0 +1,42 @@
+// MARK: RUSSIAN STRINGS
+
+// ONBOARDING
+"onboarding1_title" = "Ищите интересные вам книги";
+"onboarding2_title" = "Используйте закладки";
+
+"onboarding1_subtitle" = "Легко и просто ищите интересующую вас литературу в нашей базе данных! Книги на любой вкус!";
+"onboarding2_subtitle" = "Сохраняйте интересные вам книги на будущее!";
+
+// TAB BAR
+"tab_favorites" = "Избранное";
+"tab_search" = "Найти";
+
+// BUTTONS
+"button_continue" = "Продолжить";
+"button_search_book" = "Найти книгу";
+
+// NAV BAR
+
+// TEXT
+"favorites_cardCountTitle" = "Всего книг";
+"favorites_title" = "У вас пока нет книг,\n найдите свою книгу!";
+
+//SEARCH SCREEN
+"authors" = "Авторы:";
+"author" = "Автор:";
+"no_authors" = "Авторы не найдены";
+"searchbar_placeholder" = "Начните поиск...";
+
+"begin_search_view" = "Найдите книгу...";
+"loading_text" = "Ищем";
+"no_result_text" = "По вашему запросу ничего не найдено :(";
+
+"error_already_exists" = "Эта книга уже добавлена в избранное";
+
+//DETAILED SCREEN
+"rating" = "Рейтинг: ";
+"firstly_published" = "Дата первой публикации:";
+"language" = "Язык:";
+"subject" = "Предмет:";
+
+
