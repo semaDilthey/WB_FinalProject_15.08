@@ -18,33 +18,24 @@ protocol Persistable {
 
 extension Persistable where Model : BookInterface {
     
-    func save(_ object: Model) throws {
-        guard let realm else { return }
-        let objectToSave = object.toRealm()
-        
-         var predicate = NSPredicate(format: "title == %@", object.title)
+     func save(_ object: Model) throws {
+         guard let realm else { return }
+         let objectToSave = object.toRealm()
          
-         for author in object.authors ?? [] {
-             let authorPredicate = NSPredicate(format: "ANY authors == %@", author)
-             predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, authorPredicate])
+         let allBooks = realm.objects(BookRealmModel.self).map { $0.toBook() as! Model }
+         guard !allBooks.containsBook(matching: object) else {
+             throw NSError(domain: "ObjectAlreadyExists", code: 1, userInfo: nil)
          }
-        
-        let existingObject = realm.objects(BookRealmModel.self)
-            .filter(predicate)
-            .first
-        
-        guard existingObject == nil else {
-            throw NSError(domain: "ObjectAlreadyExists", code: 1, userInfo: nil)
-        }
-        
-        do {
-            try realm.write {
-                realm.add(objectToSave)
-            }
-        } catch {
-            throw error
-        }
-    }
+         
+         do {
+             try realm.write {
+                 realm.add(objectToSave)
+             }
+         } catch {
+             throw error
+         }
+     }
+     
     
     func fetchAll() -> [Model] {
         guard let realm else { return [] }

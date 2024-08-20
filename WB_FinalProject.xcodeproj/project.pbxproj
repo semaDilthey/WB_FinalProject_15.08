@@ -43,6 +43,7 @@
 		3F9CBBCA2C6AB05200A1D155 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CBBC92C6AB05200A1D155 /* RealmService.swift */; };
 		3FE7703A2C74E67300F49EC7 /* Constatns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE770392C74E67300F49EC7 /* Constatns.swift */; };
 		3FE7703C2C74E78F00F49EC7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE7703B2C74E78F00F49EC7 /* CustomTabBar.swift */; };
+		3FE7703E2C74E9E700F49EC7 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE7703D2C74E9E700F49EC7 /* Sequence+Extension.swift */; };
 		5A3FCED62C69F5FA00457B19 /* AlomofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED52C69F5FA00457B19 /* AlomofireService.swift */; };
 		5A3FCED92C69F62C00457B19 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCED82C69F62C00457B19 /* SearchResponse.swift */; };
 		5A3FCEDB2C69F63E00457B19 /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEDA2C69F63E00457B19 /* BookResponse.swift */; };
@@ -90,6 +91,7 @@
 		3F9CBBC92C6AB05200A1D155 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		3FE770392C74E67300F49EC7 /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
 		3FE7703B2C74E78F00F49EC7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		3FE7703D2C74E9E700F49EC7 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		4EFBDFB72C6FD18400A0A062 /* BookAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BookAPI; path = Modules/BookAPI; sourceTree = "<group>"; };
 		4EFBDFB82C6FD1C600A0A062 /* generateBookAPI.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generateBookAPI.sh; sourceTree = "<group>"; };
 		5A3FCED52C69F5FA00457B19 /* AlomofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomofireService.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				3F7D6DB62C664C6800D69CD7 /* String+Extension.swift */,
+				3FE7703D2C74E9E700F49EC7 /* Sequence+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				3F7D6DE82C679F0300D69CD7 /* OnboardingView.swift in Sources */,
 				5A3FCED92C69F62C00457B19 /* SearchResponse.swift in Sources */,
 				3F560B6A2C7136EF006291BA /* BookCell.swift in Sources */,
+				3FE7703E2C74E9E700F49EC7 /* Sequence+Extension.swift in Sources */,
 				3FE7703C2C74E78F00F49EC7 /* CustomTabBar.swift in Sources */,
 				5A3FCED62C69F5FA00457B19 /* AlomofireService.swift in Sources */,
 				3F560B6C2C713BE6006291BA /* FavoritesViewModel.swift in Sources */,
