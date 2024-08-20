@@ -17,7 +17,7 @@ final class Router: ObservableObject {
     private init() {}
     
     func moveToTab(tab: Tabs) {
-        
+        selectedTab = tab
     }
 }
 

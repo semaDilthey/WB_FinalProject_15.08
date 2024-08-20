@@ -15,8 +15,9 @@ struct SearchResultView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
                 ForEach(viewModel.books, id: \.self) { book in
-                    NavigationLink(destination: BookDetailedView(book: book, onFavoriteTap: { _ in
-                    })) {
+                    NavigationLink {
+                        BookDetailedView(book: book)
+                    } label: {
                         BookCell(book: book) { book in
                             viewModel.saveBook(book)
                         }

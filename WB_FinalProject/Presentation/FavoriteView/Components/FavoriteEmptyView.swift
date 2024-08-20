@@ -15,25 +15,29 @@ struct FavoriteEmptyView: View {
     var body: some View {
         VStack() {
             Spacer()
-                .frame(height: 23)
+                .frame(height: UI.spacerHeight)
             Image("no_saved_books_image")
                 .resizable()
-                .frame(width: 305, height: 321)
+                .scaledToFit()
             Spacer()
-                .frame(height: 23)
+                .frame(height: UI.spacerHeight)
             Text("favorites_title".localized)
-                .frame(width: 200)
+                .frame(maxWidth: .infinity)
                 .font(.wb(.subheading2))
                 .multilineTextAlignment(.center)
             Spacer()
-                .frame(height: 58)
+                .frame(height: UI.spacerHeight*2)
         
             WBActionButton(title: "button_search_book".localized,
-                           action: { router.selectedTab = .search },
+                           action: { router.moveToTab(tab: .search) },
                            backgroundColor: .wbPurple)
         }
         .padding()
     }
+}
+
+fileprivate enum UI {
+    static let spacerHeight: CGFloat = 23
 }
 
 #Preview {

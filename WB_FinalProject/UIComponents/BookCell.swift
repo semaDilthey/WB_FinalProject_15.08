@@ -19,6 +19,11 @@ struct BookCell: View {
     @State private var image: UIImage?
     @State private var isFavorite: Bool = false
         
+    init(book: BookModelType, onFavoriteTap: @escaping (Book) -> Void = { _ in }) {
+        self.book = book
+        self.onFavoriteTap = onFavoriteTap
+    }
+    
     var body: some View {
        WBShadowedWrapperView {
            HStack {

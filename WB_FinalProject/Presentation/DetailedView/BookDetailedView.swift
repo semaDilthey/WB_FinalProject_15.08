@@ -12,19 +12,17 @@ import RealmSwift
 struct BookDetailedView: View {
         
     var book: BookModelType
-    var onFavoriteTap: (Book) -> Void
-    
+
     @State private var image: UIImage?
-    @State private var isFavorite: Bool = false
         
     var body: some View {
        WBShadowedWrapperView {
            HStack {
                if let book = book as? (any BookResponseInterface) {
-                  bookResponseCell(book)
+                   bookResponseDetailedView(book)
                }
                if let book = book as? (any BookInterface) {
-                   bookInterfaceCell(book)
+                   bookInterfaceDetailedView(book)
                }
            }
            .frame(maxWidth: .infinity)
@@ -32,7 +30,7 @@ struct BookDetailedView: View {
        .padding(1)
    }
    
-    private func bookResponseCell(_ bookResponse: any BookResponseInterface) -> some View {
+    private func bookResponseDetailedView(_ bookResponse: any BookResponseInterface) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 12) {
@@ -61,7 +59,7 @@ struct BookDetailedView: View {
                                     .font(.wb(.body1))
                             }
                         } else {
-                            Text("Rating: N/A")
+                            Text("rating".localized)
                                 .font(.wb(.body1))
                         }
                         Spacer()
@@ -72,26 +70,26 @@ struct BookDetailedView: View {
                 Divider()
                 
                 if let publishYear = bookResponse.first_publish_year {
-                    Text("Firstly published: \(publishYear.description)")
+                    Text("\("firstly_published".localized) \(publishYear.description)")
                         .font(.wb(.body2))
                 } else {
-                    Text("Firstly published: N/A")
+                    Text("\("firstly_published".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
                 if let language = bookResponse.language {
-                    Text("Language: \(language.joined(separator: ", ").capitalized)")
+                    Text("\("language".localized) \(language.joined(separator: ", ").capitalized)")
                         .font(.wb(.body2))
                 } else {
-                    Text("Language: N/A")
+                    Text("\("language".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
                 if let subject = bookResponse.subject {
-                    Text("Subject: \(subject.joined(separator: ", "))")
+                    Text("\("subject".localized) \(subject.joined(separator: ", "))")
                         .font(.wb(.body2))
                 } else {
-                    Text("Subject: N/A")
+                    Text("\("subject".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
@@ -102,12 +100,9 @@ struct BookDetailedView: View {
             .padding(.vertical)
             .padding(.horizontal, 16)
         }
-        .onAppear {
-            checkIfBookIsFavorite(bookResponse)
-        }
     }
     
-    private func bookInterfaceCell(_ book: any BookInterface) -> some View {
+    private func bookInterfaceDetailedView(_ book: any BookInterface) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 12) {
@@ -135,7 +130,7 @@ struct BookDetailedView: View {
                                     .font(.wb(.body1))
                             }
                         } else {
-                            Text("Rating: N/A")
+                            Text("rating".localized)
                                 .font(.wb(.body1))
                         }
                         Spacer()
@@ -146,26 +141,26 @@ struct BookDetailedView: View {
                 Divider()
                 
                 if let publishYear = book.firstYear {
-                    Text("Firstly published: \(publishYear.description)")
+                    Text("\("firstly_published".localized) \(publishYear.description)")
                         .font(.wb(.body2))
                 } else {
-                    Text("Firstly published: N/A")
+                    Text("\("firstly_published".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
                 if let language = book.language {
-                    Text("Language: \(language.joined(separator: ", ").capitalized)")
+                    Text("\("language".localized) \(language.joined(separator: ", ").capitalized)")
                         .font(.wb(.body2))
                 } else {
-                    Text("Language: N/A")
+                    Text("\("language".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
                 if let subject = book.subject {
-                    Text("Subject: \(subject.joined(separator: ", "))")
+                    Text("\("subject".localized) \(subject.joined(separator: ", "))")
                         .font(.wb(.body2))
                 } else {
-                    Text("Subject: N/A")
+                    Text("\("subject".localized) N/A")
                         .font(.wb(.body2))
                 }
                 
@@ -182,14 +177,7 @@ struct BookDetailedView: View {
         guard let coverI else { return "" }
         return "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg"
     }
-    
-    private func checkIfBookIsFavorite(_ bookResponse: any BookResponseInterface) {
-         let realm = try? Realm()
-         let predicate = NSPredicate(format: "title == %@ AND ANY authors == %@", bookResponse.title, bookResponse.author_name?.first ?? "")
-         if let existingBook = realm?.objects(BookRealmModel.self).filter(predicate).first {
-             isFavorite = existingBook.isFavorite
-         }
-     }
+
 }
 
 fileprivate enum UI {

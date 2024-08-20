@@ -12,19 +12,17 @@ struct TabsView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        TabView(selection: $router.selectedTab) {
-            ForEach(Tabs.allCases, id: \.self) { tab in
-                TabItem(tab)
-                    .tag(tab.rawValue)
-                    .tabItem {
-                        VStack {
-                            Image(systemName: tab.value.icon)
-                            Text(tab.value.title)
-                    }
+        ZStack(alignment: .bottom) {
+            TabView(selection: $router.selectedTab) {
+                ForEach(Tabs.allCases, id: \.self) { tab in
+                    TabItem(tab)
+                        .tag(tab.rawValue)
                 }
             }
+            .tint(.wbPurple)
+            CustomTabBar(selectedTab: $router.selectedTab)
+                                    .background(Color.clear)
         }
-        .tint(.wbPurple)
     }
     
     @ViewBuilder
@@ -42,13 +40,7 @@ struct TabsView: View {
     }
     
     private func setupTabBar() {
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithOpaqueBackground()
-        tabBarAppearance.backgroundColor = UIColor.wbPurpleBackground
-        tabBarAppearance.shadowColor = .clear
-        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        UITabBar.appearance().unselectedItemTintColor = UIColor.wbDisabled.withAlphaComponent(0.45)
+        UITabBar.appearance().isHidden = true
     }
 }
 
@@ -56,3 +48,5 @@ struct TabsView: View {
     TabsView()
         .environmentObject(Router.shared)
 }
+
+

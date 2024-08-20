@@ -46,54 +46,63 @@ final class SearchViewModel: ObservableObject {
     //MARK: - Public methos
     
     func searchBooks(query: String) {
-        self.currentPage = 0
-        self.books = []
-        self.hasMoreBooks = true
-        loadMoreBooks()
-    }
-    
+        self.query = query
+          resetPagination()
+          loadMoreBooks()
+      }
+
     func loadMoreBooks() {
         guard state != .loading, hasMoreBooks else { return }
-        
+
         state = .loading
-        let parameters: [String: Any] = [
-            "q": query,
-            "start": currentPage * pageSize,
-            "limit": pageSize
-        ]
-        
+        let parameters = createSearchParameters()
+
         networkService.fetch(endpoint: "/search.json", parameters: parameters, responseType: SearchResponse.self)
-            .sink(receiveCompletion: { [weak self] completion in
-                guard let self else { return }
-                
-                if case .failure(let error) = completion {
-                    print("Error: \(error.localizedDescription)")
-                    self.hasMoreBooks = false
-                    self.state = .noResult
-                }
-            }, receiveValue: { [weak self] searchResponse in
-                guard let self = self else { return }
-                self.books.append(contentsOf: searchResponse.docs)
-                self.currentPage += 1
-                self.hasMoreBooks = searchResponse.docs.count == self.pageSize
-                if searchResponse.docs.isEmpty {
-                    self.state = .noResult
-                } else {
-                    self.state = .result
-                }
-            })
+            .sink(receiveCompletion: handleCompletion, receiveValue: handleResponse)
             .store(in: &cancellables)
     }
-    
+
     func saveBook(_ book: any BookInterface) {
-        if let database = dataBase as? RealmService<Book> {
-            do {
-                try database.save(book as! Book)
-            } catch {
-                showAlert.toggle()
-            }
-        } else {
+        guard let database = dataBase as? RealmService<Book> else {
             print("Error: DataBase is not of type RealmService<Book>")
+            return
         }
+
+        do {
+            try database.save(book as! Book)
+        } catch {
+            showAlert.toggle()
+        }
+  }
+    
+    // MARK: - Private methods
+
+    private func resetPagination() {
+        currentPage = 0
+        books = []
+        hasMoreBooks = true
+    }
+
+    private func createSearchParameters() -> [String: Any] {
+        [
+        "q": query,
+        "start": currentPage * pageSize,
+        "limit": pageSize
+        ]
+    }
+
+    private func handleCompletion(completion: Subscribers.Completion<Error>) {
+        if case .failure(let error) = completion {
+            print("Error: \(error.localizedDescription)")
+            hasMoreBooks = false
+            state = .noResult
+        }
+    }
+
+    private func handleResponse(searchResponse: SearchResponse) {
+        books.append(contentsOf: searchResponse.docs)
+        currentPage += 1
+        hasMoreBooks = searchResponse.docs.count == pageSize
+        state = searchResponse.docs.isEmpty ? .noResult : .result
     }
 }

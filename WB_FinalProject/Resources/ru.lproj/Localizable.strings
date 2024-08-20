@@ -33,4 +33,10 @@
 
 "error_already_exists" = "Эта книга уже добавлена в избранное";
 
+//DETAILED SCREEN
+"rating" = "Рейтинг: ";
+"firstly_published" = "Дата первой публикации:";
+"language" = "Язык:";
+"subject" = "Предмет:";
+
 

@@ -16,7 +16,7 @@ struct FavoriteView: View {
         NavigationView {
             VStack {
                 totalBooksView
-                    .frame(height: 85)
+                    .frame(height: UI.totalBookHeight)
                 switch viewModel.state {
                 case .empty:
                     FavoriteEmptyView()
@@ -39,6 +39,10 @@ struct FavoriteView: View {
                             backgroundColor: .wbPurple,
                             text: "favorites_cardCountTitle".localized.uppercased())
     }
+}
+
+fileprivate enum UI {
+    static let totalBookHeight: CGFloat = 85
 }
 
 #Preview {
